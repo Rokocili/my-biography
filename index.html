@@ -3,124 +3,265 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jona Rokocili | Biography</title>
+  <title>Jona Rokocili | IT Portfolio</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: "Segoe UI", Arial, sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
-      background: #f4f7fb;
-      color: #222;
-      line-height: 1.6;
+      background: #07111f;
+      color: #f5f7fb;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(0, 183, 255, 0.25), transparent 30%),
+        radial-gradient(circle at 80% 10%, rgba(0, 255, 170, 0.18), transparent 25%),
+        radial-gradient(circle at 50% 90%, rgba(80, 120, 255, 0.25), transparent 30%);
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: -1;
+      animation: gridMove 18s linear infinite;
+    }
+
+    @keyframes gridMove {
+      from { background-position: 0 0; }
+      to { background-position: 80px 80px; }
     }
 
     header {
-      background: linear-gradient(135deg, #003366, #0077b6);
-      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 70px 20px;
-    }
-
-    header h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 18px;
-      max-width: 700px;
-      margin: auto;
+      padding: 40px 20px;
+      position: relative;
     }
 
     nav {
-      background: white;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50px;
+      padding: 12px 22px;
+      z-index: 100;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
 
     nav a {
-      color: #003366;
+      color: #eaf6ff;
       text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
+      margin: 0 12px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #00e5ff;
+    }
+
+    .hero {
+      max-width: 900px;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 30px;
+      background: rgba(0, 229, 255, 0.12);
+      border: 1px solid rgba(0, 229, 255, 0.35);
+      color: #8ff5ff;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: clamp(42px, 8vw, 86px);
+      line-height: 1;
+      margin-bottom: 18px;
+      background: linear-gradient(90deg, #ffffff, #00e5ff, #00ff9d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .typing {
+      font-size: clamp(20px, 3vw, 32px);
+      color: #cceeff;
+      margin-bottom: 24px;
+      min-height: 42px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #c9d8e8;
+      max-width: 760px;
+      margin: 0 auto 35px;
+    }
+
+    .buttons a {
+      display: inline-block;
+      padding: 14px 24px;
+      margin: 8px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .primary {
+      background: linear-gradient(135deg, #00e5ff, #00ff9d);
+      color: #07111f;
+    }
+
+    .secondary {
+      border: 1px solid rgba(255,255,255,0.25);
+      color: white;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .buttons a:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,229,255,0.25);
     }
 
     section {
-      max-width: 1000px;
-      margin: 40px auto;
+      max-width: 1100px;
+      margin: 0 auto 80px;
+      padding: 80px 22px 20px;
+    }
+
+    .section-title {
+      font-size: 36px;
+      margin-bottom: 18px;
+      color: white;
+    }
+
+    .section-subtitle {
+      color: #a9bdd2;
+      max-width: 720px;
+      margin-bottom: 35px;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(12px);
+      border-radius: 22px;
       padding: 30px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.25);
     }
 
-    section h2 {
-      color: #003366;
-      margin-bottom: 15px;
-      border-bottom: 3px solid #0077b6;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
-
-    .skills, .projects, .interests {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
     }
 
     .card {
-      background: #eef6ff;
-      padding: 18px;
-      border-radius: 10px;
-      border-left: 5px solid #0077b6;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 24px;
+      transition: 0.35s;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: rgba(0,229,255,0.5);
+      box-shadow: 0 18px 35px rgba(0,229,255,0.12);
     }
 
     .card h3 {
-      margin-bottom: 8px;
-      color: #003366;
+      color: #7df9ff;
+      margin-bottom: 10px;
+    }
+
+    .card p, .glass p {
+      color: #d6e4f0;
+    }
+
+    .skill {
+      text-align: center;
+      font-weight: 700;
+      color: #f5f7fb;
+    }
+
+    .contact-links a {
+      display: block;
+      color: #7df9ff;
+      text-decoration: none;
+      margin: 12px 0;
+      font-weight: 600;
     }
 
     footer {
       text-align: center;
-      background: #003366;
-      color: white;
-      padding: 25px;
-      margin-top: 40px;
+      padding: 35px 20px;
+      color: #9db2c7;
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
 
-    .contact a {
-      color: #0077b6;
-      text-decoration: none;
-      font-weight: bold;
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 32px;
+    @media (max-width: 700px) {
+      nav {
+        width: 90%;
+        text-align: center;
+        padding: 10px;
       }
 
       nav a {
-        display: block;
-        margin: 10px 0;
+        margin: 0 6px;
+        font-size: 12px;
+      }
+
+      section {
+        padding-top: 70px;
       }
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>Jona Rokocili</h1>
-    <p>IT Professional | Cybersecurity Enthusiast | System Administrator | Automation Developer</p>
-  </header>
 
   <nav>
     <a href="#about">About</a>
@@ -129,78 +270,147 @@
     <a href="#contact">Contact</a>
   </nav>
 
+  <header>
+    <div class="hero">
+      <div class="badge">IT • Cybersecurity • Automation</div>
+      <h1>Jona Rokocili</h1>
+      <div class="typing" id="typing"></div>
+      <p>
+        I build practical digital solutions for IT support, cybersecurity, automation,
+        system administration, and business operations.
+      </p>
+      <div class="buttons">
+        <a href="#projects" class="primary">View My Projects</a>
+        <a href="#contact" class="secondary">Contact Me</a>
+      </div>
+    </div>
+  </header>
+
   <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I am an IT professional based in Fiji with experience in system administration,
-      cybersecurity, network support, helpdesk systems, and automation. I enjoy building
-      practical technology solutions that improve workflow, strengthen security, and support
-      organizations in their digital transformation journey.
-    </p>
-    <br>
-    <p>
-      My work focuses on solving real-world IT problems using simple, reliable, and efficient
-      tools. I am passionate about learning new technologies and applying them to improve
-      business operations and user support.
-    </p>
+    <h2 class="section-title">About Me</h2>
+    <p class="section-subtitle">A technology-focused professional based in Fiji.</p>
+    <div class="glass">
+      <p>
+        I am an IT professional with experience in system administration, cybersecurity,
+        network support, helpdesk systems, automation, and web development. I enjoy solving
+        real-world problems by creating tools that improve workflow, increase security, and
+        make technology easier to use.
+      </p>
+      <br>
+      <p>
+        My goal is to continue growing in cybersecurity, automation, and enterprise IT while
+        building reliable solutions that support organizations in Fiji and beyond.
+      </p>
+    </div>
   </section>
 
   <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills">
-      <div class="card">Python</div>
-      <div class="card">Flask Web Development</div>
-      <div class="card">HTML, CSS & JavaScript</div>
-      <div class="card">Git & GitHub</div>
-      <div class="card">Windows & Linux Administration</div>
-      <div class="card">Microsoft 365 Administration</div>
-      <div class="card">Networking & Wi-Fi Support</div>
-      <div class="card">Cybersecurity Fundamentals</div>
-      <div class="card">Automation & Reporting</div>
-      <div class="card">SQL & Data Analysis</div>
+    <h2 class="section-title">Skills</h2>
+    <p class="section-subtitle">Tools and technologies I work with.</p>
+    <div class="grid">
+      <div class="card skill">Python</div>
+      <div class="card skill">Flask</div>
+      <div class="card skill">HTML / CSS / JavaScript</div>
+      <div class="card skill">Git & GitHub</div>
+      <div class="card skill">Windows Server</div>
+      <div class="card skill">Linux Administration</div>
+      <div class="card skill">Microsoft 365</div>
+      <div class="card skill">Cybersecurity</div>
+      <div class="card skill">Networking</div>
+      <div class="card skill">SQL & Data Analysis</div>
+      <div class="card skill">Automation</div>
+      <div class="card skill">Technical Support</div>
     </div>
   </section>
 
   <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
+    <h2 class="section-title">Projects</h2>
+    <p class="section-subtitle">Some of the systems and ideas I work on.</p>
+    <div class="grid">
       <div class="card">
         <h3>Helpdesk Web Application</h3>
-        <p>A lightweight IT helpdesk system for managing support tickets and user requests.</p>
+        <p>A lightweight IT support system for managing tickets, requests, and reports.</p>
       </div>
       <div class="card">
         <h3>AppLock Android Project</h3>
-        <p>An Android application designed to secure and restrict access to selected apps.</p>
+        <p>An Android app designed to restrict and protect access to selected applications.</p>
       </div>
       <div class="card">
         <h3>Automation Scripts</h3>
-        <p>Python scripts for reporting, monitoring, and simplifying IT administration tasks.</p>
+        <p>Python tools for reports, monitoring, repetitive IT tasks, and workflow automation.</p>
+      </div>
+      <div class="card">
+        <h3>Local AI Assistant</h3>
+        <p>A simple workplace chatbot concept that can assist staff and support helpdesk tasks.</p>
       </div>
     </div>
   </section>
 
-  <section id="interests">
-    <h2>Current Interests</h2>
-    <div class="interests">
-      <div class="card">AI-powered workplace tools</div>
-      <div class="card">Cybersecurity automation</div>
-      <div class="card">Open-source IT solutions</div>
-      <div class="card">Cloud infrastructure</div>
-      <div class="card">Smart agriculture and hydroponics</div>
-      <div class="card">Enterprise IT systems</div>
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-subtitle">Connect with me online.</p>
+    <div class="glass contact-links">
+      <a href="https://github.com/yourusername" target="_blank">GitHub: github.com/yourusername</a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn: linkedin.com/in/yourprofile</a>
+      <a href="mailto:your@email.com">Email: your@email.com</a>
     </div>
   </section>
 
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p><strong>GitHub:</strong> <a href="https://github.com/Rokocili" target="_blankhttps://github.com/Rokocili</a></p>
-    <p><strong>LinkedIn:</strong> <a href="https://https://www.linkedin.com/in/jona-rokocili-8a555192/" target="_blank">https://www.linkedin.com/in/jona-rokocili-8a555192/</a></p>
-    <p><strong>Email:</strong> <a href="mailto:jrokocili@gmail.com">jrokocili@gmail.com</a></p>
-  </section>
-
   <footer>
-    <p>&copy; 2026 Jona Rokocili. All rights reserved.</p>
+    <p>© 2026 Jona Rokocili. Built with HTML, CSS and JavaScript.</p>
   </footer>
+
+  <script>
+    const words = [
+      "IT Professional",
+      "Cybersecurity Enthusiast",
+      "System Administrator",
+      "Automation Developer",
+      "Problem Solver"
+    ];
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingElement = document.getElementById("typing");
+
+    function typeText() {
+      const currentWord = words[wordIndex];
+
+      if (isDeleting) {
+        typingElement.textContent = currentWord.substring(0, charIndex--);
+      } else {
+        typingElement.textContent = currentWord.substring(0, charIndex++);
+      }
+
+      if (!isDeleting && charIndex === currentWord.length + 1) {
+        isDeleting = true;
+        setTimeout(typeText, 1200);
+        return;
+      }
+
+      if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+      }
+
+      setTimeout(typeText, isDeleting ? 45 : 80);
+    }
+
+    typeText();
+
+    const cards = document.querySelectorAll(".card");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => observer.observe(card));
+  </script>
 
 </body>
 </html>
